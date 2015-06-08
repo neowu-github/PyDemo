@@ -13,17 +13,17 @@ import json
 import sqlite3
 from email.mime.text import MIMEText  
 
-CONST_HOST = "tc.sigma-rt.com.cn"
-CONST_USERNAME = "sigma_log"
-CONST_PWD = "sigma-rt"
+CONST_HOST = "xxxxx.com.cn"
+CONST_USERNAME = "xxxx"
+CONST_PWD = "xxxxx"
 CONST_BUFFER_SIZE = 8192
 
 mailto_list = ['zhwu@sigma-rt.com']#['support@sigma-rt.com', 'linzhang@sigma-rt.com', 'sgao@sigma-rt.com']# ['zhwu@sigma-rt.com']#
-mail_host = "smtp.sigma-rt.com"  # 设置服务器
+mail_host = "smtp.xxxxx.com"  # 设置服务器
 # mail_user = "zhwu"  # 用户名
 # mail_pass = "314159265"  # 口令 
-mail_user = 'support'
-mail_pass = 'S19MaJieHuaRock@2014'
+mail_user = 'xxxxx'
+mail_pass = 'xxxxxxxxxxxxx'
 mail_postfix = 'sigma-rt.com' #邮箱后缀
 
 def connect():
