@@ -35,11 +35,13 @@ import platform
 import turtle
 import math
 
+
 '''
 获取指定目录下的文件列表
 '''
 def GetFileList(dir, fileList):
     newDir = dir
+    
     if os.path.isfile(dir):
         fileList.append(dir.decode('gbk'))
     elif os.path.isdir(dir):  
@@ -243,7 +245,7 @@ def sendMultipartPost(url, params, files):
         
     return data
 
-def getUrllib2(self, upload = False, redirect = False):
+def getUrllib2(upload = False, redirect = False):
     if upload:
         handlers = poster.streaminghttp.get_handlers()
     else:
@@ -490,7 +492,7 @@ def killAllDriver():
     os.system(cmd)
     
 '''
-关于platform
+关于 platform
 '''
 def TestPlatform():
     print ("----------Operation System--------------------------")
@@ -526,7 +528,7 @@ def isLinuxSystem():
     return 'Linux' in platform.system()
 
 '''
-对于turtle类的一些封装方法，包括画正多边形，正多角形和五星红旗。
+对于 turtle类的一些封装方法，包括画正多边形，正多角形和五星红旗。
 '''
 def draw_polygon(aTurtle, size=50, n=3):
     ''' 绘制正多边形
@@ -633,3 +635,56 @@ def removeDir(dirPath):
         os.rmdir(dirPath)
     except Exception, e:
         print e
+
+'''
+dict 排序
+'''
+def myDictSort(d = {}):
+    from collections import OrderedDict
+    #按key排序
+    OrderedDict(sorted(d.items(), key=lambda t: t[0]))
+    OrderedDict([('apple', 4), ('banana', 3), ('orange', 2), ('pear', 1)])
+    
+    #按value排序
+    OrderedDict(sorted(d.items(), key=lambda t: t[1]))
+    OrderedDict([('pear', 1), ('orange', 2), ('banana', 3), ('apple', 4)])
+    
+    #按key的长度排序
+    OrderedDict(sorted(d.items(), key=lambda t: len(t[0])))
+    OrderedDict([('pear', 1), ('apple', 4), ('orange', 2), ('banana', 3)])
+    
+'''
+url decode encode
+'''
+def my_format(str):
+    from urllib import urlencode
+    data = {
+        'a': 'test',
+        'name': '魔兽'
+    }
+    print urlencode(data)
+#     a=test&amp;name=%C4%A7%CA%DE
+
+    from urllib import quote
+    quote('魔兽')
+#     '%C4%A7%CA%DE'
+
+    from urllib import unquote
+    unquote('%C4%A7%CA%DE')
+#     '\xc4\xa7\xca\xde'
+
+    print unquote('%C4%A7%CA%DE')
+#     魔兽
+
+'''
+乘法表
+'''
+def mySquare(num):
+    K=range(num + 1)
+    K[0] = ''
+    print '\t'.join([str(i) for i in K])
+    for i in xrange(1, len(K)):
+        print '{}\t'.format(K[i]),
+        for j in K[1:]:
+            print '{}\t'.format(K[i]*j),
+        print    
